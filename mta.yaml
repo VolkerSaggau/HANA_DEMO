@@ -1,0 +1,19 @@
+_schema-version: "2.1"
+ID: HANA_DEMO
+version: 0.0.1
+modules:
+- name: db
+  type: hdb
+  path: db
+  requires:
+  - name: hdi_db
+    properties:
+      TARGET_CONTAINER: ~{hdi-container-name}
+resources:
+- name: hdi_db
+  type: com.sap.xs.hdi-container
+  parameters:
+    config:
+      database_id: 7e6aa88e-a50c-432b-813e-1c97086416d0
+  properties:
+    hdi-container-name: ${service-name}
